@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Isafast Venture - Supermarket &amp; Home Essentials</title>
+<!-- Tailwind CSS v3 with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Config -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#EAEAEA',
+              card: '#F6F6F6',
+              dark: '#1C1C1E',
+              gray: '#666666',
+              border: '#E8E8E8',
+              accent: '#E53E3E'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Custom Styles: General & Utilities -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #DBDBDB;
+      font-family: 'Inter', sans-serif;
+      color: #1A1A1A;
+      -webkit-font-smoothing: antialiased;
+    }
+    .shadow-soft {
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+<!-- Custom Styles: Component Tweaks -->
+<style data-purpose="components">
+    /* Custom scrollbar hiding for horizontal overflow if needed */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="py-6 px-3 sm:px-6 flex justify-center items-start min-h-screen">
+<!-- Main Outer Wrapper simulating the clean desktop frame -->
+<div class="w-full max-w-[1020px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-neutral-200 flex flex-col my-auto" data-purpose="page-wrapper">
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white px-8 pt-5 pb-4 border-b border-gray-100 flex items-center justify-between" data-purpose="top-navigation">
+<!-- Logo -->
+<a class="flex items-center gap-2 text-neutral-900 font-bold text-lg tracking-tight hover:opacity-85 transition" href="#">
+<!-- Logo Icon -->
+<svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+<line x1="4" x2="4" y1="22" y2="15"></line>
+</svg>
+<span>Isafast Venture</span>
+</a>
+<!-- Center Links -->
+<nav class="hidden md:flex items-center gap-8 text-[13px] font-medium text-neutral-600">
+<a class="hover:text-black transition" href="#">Home</a>
+<a class="text-neutral-900 font-bold border-b-2 border-black pb-0.5" href="#">Shop</a>
+<a class="hover:text-black transition" href="#">Blog</a>
+</nav>
+<!-- Right Action Icons -->
+<div class="flex items-center gap-4 text-neutral-700">
+<!-- Search Icon -->
+<button aria-label="Search" class="p-1 hover:text-black transition">
+<svg class="w-4 h-4 stroke-[2.2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Cart Icon with Red Notification Dot -->
+<button aria-label="Cart" class="relative p-1 hover:text-black transition">
+<svg class="w-4 h-4 stroke-[2.2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1 right-0.5 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+</button>
+<!-- Avatar Circle -->
+<div class="w-7 h-7 rounded-full overflow-hidden border border-neutral-200 cursor-pointer ml-1">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo9LgHKb08s6hxiZU0MpgGsuaj6fSIySl_KNbevbVAMsgCDKJl5yXI7nz-2nO6xCuykIAm-7k5JAGzXXtDCUoEh_iX1Gc_p7Rdzaf83vacW2fKtlwDHgcapMHennanBPCVlmvOMY_I08L3wugfCe1eekTRiEzKDrp3zrv5IlTN4IvkMYCL1mRLq26vzL_NX4UU0mjmJgPQz7NTk4zU-rso4tnqajaNeIqlJsOfsKqyolW2XOl3rrMA"/>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative mx-6 mt-4 rounded-2xl overflow-hidden bg-neutral-900 h-64 md:h-72 flex flex-col justify-between p-6 shadow-sm" data-purpose="hero-banner">
+<!-- Background Interior Photo with Dark/Warm Overlay -->
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRf8NfZ1koRHNt_A3KttfTehw6ep9kKmny2rq77ebBWbXQ6tlKaYWECg8Kl7ND5b-mcX9TH7TKoMxjZIomeY38D4D6c5lD0rvOZPv_aO41o6Bu0IaGNIRMhuhHGPTYdy72km-Cr8Fsk8x6iQ_DwtgH2bwibfP640FPwSMlUo21hAMFMfgLb61Fy713y5tBcrjbyauzZkd72loX4sc_SpKphed_MbeVQ7IhQoNARDt7AYmuKUecJWeM');">
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[0.5px]"></div>
+</div>
+<!-- Hero Huge Shop Title -->
+<div class="relative z-10 w-full flex items-center justify-center my-auto">
+<h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight drop-shadow-sm opacity-95 select-none">
+          Shop
+        </h1>
+</div>
+<!-- Hero Bottom Sub-Bar -->
+<div class="relative z-10 w-full bg-white/95 backdrop-blur-md rounded-xl px-5 py-3 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg border border-white/50">
+<span class="text-neutral-900 font-bold text-sm tracking-tight">Everything You Need</span>
+<!-- Search bar inside hero -->
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<div class="relative flex-1 sm:w-64">
+<svg class="w-3.5 h-3.5 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+<input class="w-full pl-9 pr-3 py-1.5 text-xs rounded-full border border-neutral-200 bg-neutral-50/50 text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-1 focus:ring-neutral-800" placeholder="Search on Isafast Venture" type="text"/>
+</div>
+<button class="bg-[#1C1C1E] hover:bg-black text-white text-xs font-semibold px-4 py-1.5 rounded-full transition shadow-sm">
+            Search
+          </button>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: MainContent (Sidebar + Products) -->
+<main class="px-6 py-8 flex flex-col lg:flex-row gap-8" data-purpose="shop-catalog-section">
+<!-- Left Sidebar: Categories & Filters -->
+<aside class="w-full lg:w-48 shrink-0 space-y-6" data-purpose="sidebar-filter">
+<div>
+<h2 class="text-sm font-bold text-neutral-900 mb-3 tracking-tight">Category</h2>
+<div class="space-y-1">
+<!-- Active / Primary Category item -->
+<div class="flex items-center justify-between text-xs py-1.5 font-medium text-neutral-800 cursor-pointer">
+<div class="flex items-center gap-2">
+<!-- Box outline icon -->
+<svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path>
+</svg>
+<span>All Products</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="bg-red-500 text-[10px] text-white font-bold px-1.5 py-0.5 rounded-full">32</span>
+<svg class="w-3 h-3 text-neutral-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<!-- Sub Categories -->
+<div class="pl-4 space-y-2 border-l border-neutral-100 ml-1.5 pt-1">
+<a class="flex items-center gap-2 text-xs text-neutral-500 hover:text-black transition" href="#">
+<span class="text-neutral-400">⚏</span> Groceries
+              </a>
+<a class="flex items-center gap-2 text-xs text-neutral-500 hover:text-black transition" href="#">
+<span class="text-neutral-400">♪</span> Household
+              </a>
+<a class="flex items-center gap-2 text-xs text-neutral-500 hover:text-black transition" href="#">
+<span class="text-neutral-400">▯</span> Personal Care
+              </a>
+<a class="flex items-center gap-2 text-xs text-neutral-500 hover:text-black transition" href="#">
+<span class="text-neutral-400">◫</span> Beverages
+              </a>
+</div>
+</div>
+</div>
+<!-- Secondary Categories -->
+<div class="space-y-3 pt-2 text-xs font-medium text-neutral-600">
+<div class="flex items-center justify-between cursor-pointer hover:text-black">
+<div class="flex items-center gap-2">
+<svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>New Arrival</span>
+</div>
+<svg class="w-3 h-3 text-neutral-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex items-center justify-between cursor-pointer hover:text-black">
+<div class="flex items-center gap-2">
+<span class="text-neutral-400 text-xs">✨</span>
+<span>Best Seller</span>
+</div>
+<svg class="w-3 h-3 text-neutral-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex items-center justify-between cursor-pointer hover:text-black">
+<div class="flex items-center gap-2">
+<span class="text-neutral-400 text-xs">🏷️</span>
+<span>On Discount</span>
+</div>
+<svg class="w-3 h-3 text-neutral-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</aside>
+<!-- Right Main: Products Grid -->
+<section class="flex-1" data-purpose="product-catalog-grid">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+<!-- Product Card 1: Golden Penny Semovita -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Groceries
+              </span>
+<img alt="Golden Penny Semovita 2kg" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/semovita.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Golden Penny Semovita 2kg</h3>
+<span class="text-xs font-bold text-neutral-900">₦4,500</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">5.0</span>
+<span>(1.2k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 2: Headsound -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Beverages
+              </span>
+<img alt="Peak Milk Powder 400g" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/milk.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Peak Milk Powder 400g</h3>
+<span class="text-xs font-bold text-neutral-900">₦3,200</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">5.0</span>
+<span>(1.2k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 3: Hypo Bleach -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Household
+              </span>
+<img alt="Hypo Bleach 1 Litre" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/bleach.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Hypo Bleach 1 Litre</h3>
+<span class="text-xs font-bold text-neutral-900">₦1,800</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">4.4</span>
+<span>(1k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 4: Indomie Noodles -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Groceries
+              </span>
+<img alt="Indomie Noodles (Carton)" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/indomie1.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Indomie Noodles (Carton)</h3>
+<span class="text-xs font-bold text-neutral-900">₦9,500</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">4.8</span>
+<span>(120 Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 5: Fresh Tomatoes -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Farm Fresh
+              </span>
+<img alt="Fresh Tomatoes (Basket)" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/tomatoes.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Fresh Tomatoes (Basket)</h3>
+<span class="text-xs font-bold text-neutral-900">₦12,000</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">5.0</span>
+<span>(1.2k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 6: Local Rice -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Groceries
+              </span>
+<img alt="Local Rice 10kg" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/rice.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Local Rice 10kg</h3>
+<span class="text-xs font-bold text-neutral-900">₦18,500</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">4.8</span>
+<span>(2.4k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 7: Dettol Antiseptic -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Household
+              </span>
+<img alt="Indomie Noodles (Carton)" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/indomie2.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Dettol Antiseptic 500ml</h3>
+<span class="text-xs font-bold text-neutral-900">₦2,700</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">4.8</span>
+<span>(120 Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 8: Vegetable Oil -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Groceries
+              </span>
+<img alt="Vegetable Oil 5 Litres" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/oil.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Vegetable Oil 5 Litres</h3>
+<span class="text-xs font-bold text-neutral-900">₦8,900</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">5.0</span>
+<span>(1.2k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+<!-- Product Card 9: Sugar -->
+<article class="bg-transparent flex flex-col group" data-purpose="product-card">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4 transition group-hover:bg-[#ededf0]">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60 shadow-xs">
+                Groceries
+              </span>
+<img alt="Sugar 2kg" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/sugar.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Sugar 2kg</h3>
+<span class="text-xs font-bold text-neutral-900">₦2,400</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">4.8</span>
+<span>(2.4k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                  Add to Cart
+                </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                  Buy Now
+                </button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination Controls -->
+<nav aria-label="Pagination" class="flex items-center justify-between pt-10 text-[11px] font-medium text-neutral-600">
+<a class="flex items-center gap-1 hover:text-black transition" href="#">
+            ← Previous
+          </a>
+<div class="flex items-center gap-1.5 bg-[#F6F6F6] px-3 py-1.5 rounded-full">
+<span class="w-5 h-5 flex items-center justify-center rounded-full bg-white text-black font-semibold shadow-xs">1</span>
+<a class="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-black" href="#">2</a>
+<a class="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-black" href="#">3</a>
+<span class="text-neutral-400 px-0.5">...</span>
+<a class="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-black" href="#">8</a>
+<a class="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-black" href="#">9</a>
+<a class="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-black" href="#">10</a>
+</div>
+<a class="flex items-center gap-1 hover:text-black transition" href="#">
+            Next →
+          </a>
+</nav>
+</section>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: RecommendationSection -->
+<section class="px-6 py-6 border-t border-neutral-100" data-purpose="recommendations">
+<div class="flex items-center justify-between mb-5">
+<h2 class="text-lg md:text-xl font-bold text-neutral-900 tracking-tight">Explore our recommendations</h2>
+<!-- Carousel navigation arrows -->
+<div class="flex items-center gap-2">
+<button aria-label="Previous items" class="w-7 h-7 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-100 transition text-neutral-600">
+            ←
+          </button>
+<button aria-label="Next items" class="w-7 h-7 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-100 transition text-neutral-600">
+            →
+          </button>
+</div>
+</div>
+<!-- Recommendation Carousel Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 overflow-hidden">
+<!-- Rec Card 1: Fresh Eggs -->
+<article class="flex flex-col group">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60">
+              Farm Fresh
+            </span>
+<img alt="Fresh Eggs (Crate)" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/eggs.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Fresh Eggs (Crate)</h3>
+<span class="text-xs font-bold text-neutral-900">₦3,600</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">5.0</span>
+<span>(1.2k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                Add to Cart
+              </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                Buy Now
+              </button>
+</div>
+</div>
+</article>
+<!-- Rec Card 2: Headsound Baptis -->
+<article class="flex flex-col group">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60">
+              Bakery
+            </span>
+<img alt="Family Bread Loaf" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/bread.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Family Bread Loaf</h3>
+<span class="text-xs font-bold text-neutral-900">₦1,500</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">5.0</span>
+<span>(1.2k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                Add to Cart
+              </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                Buy Now
+              </button>
+</div>
+</div>
+</article>
+<!-- Rec Card 3: Laundry Detergent -->
+<article class="flex flex-col group">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60">
+              Household
+            </span>
+<img alt="Laundry Detergent 2kg" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/detergent.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Laundry Detergent 2kg</h3>
+<span class="text-xs font-bold text-neutral-900">₦4,200</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">4.4</span>
+<span>(1k Reviews)</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 hover:border-black text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full transition text-center whitespace-nowrap">
+                Add to Cart
+              </button>
+<button class="bg-[#1C1C1E] hover:bg-black text-[10.5px] font-semibold text-white py-1 rounded-full transition text-center whitespace-nowrap">
+                Buy Now
+              </button>
+</div>
+</div>
+</article>
+<!-- Rec Card 4 (Partially sliced visually on edge) -->
+<article class="opacity-40 hover:opacity-100 transition flex flex-col group">
+<div class="relative bg-[#F4F4F6] rounded-2xl h-44 flex items-center justify-center p-4">
+<span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm text-[10px] font-medium text-neutral-600 px-2 py-0.5 rounded-full border border-neutral-200/60">
+              Farm Fresh
+            </span>
+<img alt="Fresh Pepper item" class="max-h-32 object-contain mix-blend-multiply group-hover:scale-105 transition duration-300" src="images/pepper.jpg"/>
+</div>
+<div class="pt-3 flex flex-col">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold text-neutral-900 truncate pr-2">Fresh Pe...</h3>
+<span class="text-xs font-bold text-neutral-900">₦...</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 mb-3">
+<span class="text-amber-400 text-xs">★</span>
+<span class="font-medium text-neutral-700">4.4</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-auto">
+<button class="border border-neutral-300 text-[10.5px] font-semibold text-neutral-800 py-1 rounded-full">
+                Add
+              </button>
+<button class="bg-[#1C1C1E] text-[10.5px] font-semibold text-white py-1 rounded-full">
+                Buy
+              </button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- END: RecommendationSection -->
+<!-- BEGIN: NewsletterCtaSection -->
+<section class="mx-6 my-6 bg-[#1E1E20] text-white rounded-3xl p-8 md:p-10" data-purpose="newsletter-cta">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<!-- Left: Catchy Headings & Input -->
+<div class="space-y-6">
+<h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
+            Ready to Stock Up<br/>On Your Essentials?
+          </h2>
+<!-- Email subscription box with black pill button inside -->
+<div class="relative max-w-sm">
+<input class="w-full bg-white text-neutral-800 placeholder-neutral-400 text-xs rounded-full py-2.5 pl-5 pr-20 focus:outline-none focus:ring-2 focus:ring-neutral-400 border-none" placeholder="Your Email" type="email"/>
+<button class="absolute right-1.5 top-1.5 bottom-1.5 bg-[#1C1C1E] hover:bg-black text-white text-xs font-semibold px-5 rounded-full transition">
+              Send
+            </button>
+</div>
+</div>
+<!-- Right: Descriptive Subtext -->
+<div class="text-neutral-400 text-xs leading-relaxed md:pl-8 space-y-2">
+<p class="font-semibold text-neutral-300">Isafast Venture &mdash; Your Neighbourhood Supermarket</p>
+<p>
+            From groceries and household essentials to cleaning supplies and personal care, we deliver everything you need right to your doorstep across Ajah, Lekki and Lagos.
+          </p>
+<p class="font-semibold text-neutral-300">Call / WhatsApp: +234 802 549 7315</p>
+<p>Abraham Adesanya Estate &amp; LBS Estate, Ajah, Lekki, Lagos, Nigeria.</p>
+</div>
+</div>
+</section>
+<!-- END: NewsletterCtaSection -->
+<!-- BEGIN: MainFooter -->
+<footer class="px-8 pt-6 pb-8 bg-white" data-purpose="page-footer">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10">
+<!-- About Column -->
+<div class="space-y-3">
+<h4 class="text-xs font-bold text-neutral-900 tracking-wider">About</h4>
+<ul class="space-y-2 text-xs text-neutral-500">
+<li><a class="hover:text-black transition" href="#">Blog</a></li>
+<li><a class="hover:text-black transition" href="#">Meet The Team</a></li>
+<li><a class="hover:text-black transition" href="#">Contact Us</a></li>
+<li><a class="hover:text-black transition" href="tel:+2348025497315">+234 802 549 7315</a></li>
+<li class="text-neutral-500">Abraham Adesanya Estate &amp; LBS Estate, Ajah, Lekki, Lagos, Nigeria.</li>
+</ul>
+</div>
+<!-- Support Column -->
+<div class="space-y-3">
+<h4 class="text-xs font-bold text-neutral-900 tracking-wider">Support</h4>
+<ul class="space-y-2 text-xs text-neutral-500">
+<li><a class="hover:text-black transition" href="#">Contact Us</a></li>
+<li><a class="hover:text-black transition" href="#">Shipping</a></li>
+<li><a class="hover:text-black transition" href="#">Return</a></li>
+<li><a class="hover:text-black transition" href="#">FAQ</a></li>
+</ul>
+</div>
+<!-- Empty spacing column to push social to far right on desktop -->
+<div class="hidden md:block"></div>
+<!-- Social Media Column -->
+<div class="space-y-3 md:text-right">
+<h4 class="text-xs font-bold text-neutral-900 tracking-wider">Social Media</h4>
+<div class="flex items-center gap-2 md:justify-end">
+<!-- X (Twitter) -->
+<a aria-label="X" class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold hover:opacity-80 transition" href="#">
+              𝕏
+            </a>
+<!-- Facebook -->
+<a aria-label="Facebook" class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold hover:opacity-80 transition" href="#">
+              f
+            </a>
+<!-- LinkedIn -->
+<a aria-label="LinkedIn" class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold hover:opacity-80 transition" href="#">
+              in
+            </a>
+<!-- Instagram -->
+<a aria-label="Instagram" class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold hover:opacity-80 transition" href="#">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Footer Bottom Copyright & Terms -->
+<div class="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-2">
+<p>Copyright © 2025 Isafast Venture. All Rights Reserved.</p>
+<div class="flex items-center gap-4">
+<a class="hover:text-neutral-700 transition" href="#">Terms of Service</a>
+<a class="hover:text-neutral-700 transition" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</div>
+</body></html>

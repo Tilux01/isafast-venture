@@ -1,0 +1,6 @@
+# Backups & local artifacts
+code.html.bak
+screen.png
+isafast_preview.png
+*.bak
+.DS_Store
